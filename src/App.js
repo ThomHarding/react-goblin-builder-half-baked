@@ -34,17 +34,24 @@ function App() {
 
   function handleDeleteGoblin(name) {
     // find the index of the goblin in allGoblins with this name
-
+    const index = allGoblins.findIndex(goblin => goblin.name === name);
     // use splice to delete the goblin object at this index
-
+    allGoblins.splice(index, 1);
     // update the allGoblins array immutably to this new, smaller array
+    setAllGoblins([...allGoblins]);
   }
 
   function handleFilterGoblins(search) {
     // use the filter method to get an array of goblins whose name includes this search argument
-
+    const filtered = allGoblins
+      .filter(goblin => goblin.name.toLowerCase().includes(search.toLowerCase()));
     // if there is a search argument, set the filtered goblins to the filtered goblins
+    if (search) {
+      setAllGoblins(filtered);
     // if the search argument is undefined, set the filtered goblins in state to just be the array of all goblins
+    } else {
+      setAllGoblins(allGoblins);
+    }
   }
 
 
