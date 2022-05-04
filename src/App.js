@@ -8,7 +8,7 @@ function App() {
   const [allGoblins, setAllGoblins] = useState([]);
   const [filteredGoblins, setFilteredGoblins] = useState([]);
   const [goblinFormName, setGoblinFormName] = useState('');
-  const [goblinFormHP, setGoblinFormHP] = useState('');
+  const [goblinFormHP, setGoblinFormHP] = useState(1);
   const [goblinFormColor, setGoblinFormColor] = useState('');
   /* 
     track: 
@@ -23,7 +23,7 @@ function App() {
     e.preventDefault();
     
     // on submit, make a new goblin object with a name that comes from the form state, an hp that comes from the form state, and a color that comes from the form state
-    let newGoblin = <Goblin name={goblinFormName} hp={goblinFormHP} color={goblinFormColor} />;
+    let newGoblin = <Goblin goblin={{ name:{ goblinFormName }, color:{ goblinFormColor }, hp:{ goblinFormHP } }} />;
     // update the allGoblins array. Add the new goblin to the allGoblins array immutably.
     setAllGoblins([...allGoblins, newGoblin]);
     // clear out the goblin form state items by setting them to empty strings. This will cause the form to reset in the UI.
@@ -54,11 +54,11 @@ function App() {
     }
   }
 
-
   return (
+    
     <div className="App">
       <div className='current-goblin quarter'>
-        <Goblin name={goblinFormName} color={goblinFormColor} hp={goblinFormHP}/>
+        <Goblin goblin={{ name: goblinFormName, color: goblinFormColor, hp: goblinFormHP }} />
       </div>
       <div className='goblin-filter quarter'>
         Filter Goblins
