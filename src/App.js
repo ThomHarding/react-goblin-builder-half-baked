@@ -7,9 +7,9 @@ import Goblin from './Goblin';
 function App() {
   const [allGoblins, setAllGoblins] = useState([]);
   const [filteredGoblins, setFilteredGoblins] = useState([]);
-  const [goblinFormName, setGoblinFormName] = useState('');
+  const [goblinFormName, setGoblinFormName] = useState('Billiams');
   const [goblinFormHP, setGoblinFormHP] = useState(1);
-  const [goblinFormColor, setGoblinFormColor] = useState('');
+  const [goblinFormColor, setGoblinFormColor] = useState('green');
   /* 
     track: 
       allGoblins, an array of all goblins
@@ -23,12 +23,12 @@ function App() {
     e.preventDefault();
     
     // on submit, make a new goblin object with a name that comes from the form state, an hp that comes from the form state, and a color that comes from the form state
-    let newGoblin = <Goblin goblin={{ name:{ goblinFormName }, color:{ goblinFormColor }, hp:{ goblinFormHP } }} />;
+    let newGoblin = { name: goblinFormName, color: goblinFormColor, hp: goblinFormHP };
     // update the allGoblins array. Add the new goblin to the allGoblins array immutably.
     setAllGoblins([...allGoblins, newGoblin]);
     // clear out the goblin form state items by setting them to empty strings. This will cause the form to reset in the UI.
-    setGoblinFormColor('');
-    setGoblinFormHP('');
+    setGoblinFormColor('green');
+    setGoblinFormHP(10);
     setGoblinFormName('');
   }
 
