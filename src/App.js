@@ -29,7 +29,7 @@ function App() {
     // clear out the goblin form state items by setting them to empty strings. This will cause the form to reset in the UI.
     setGoblinFormColor('green');
     setGoblinFormHP(10);
-    setGoblinFormName('');
+    setGoblinFormName('Goblin');
   }
 
   function handleDeleteGoblin(name) {
