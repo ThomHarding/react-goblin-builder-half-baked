@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('looks for the default goblin', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  const linkElement = screen.getAllByRole('img');
+  expect(linkElement[0]).toBeInTheDocument();
+  expect(linkElement[0].src === 'goblin.png');
 });
